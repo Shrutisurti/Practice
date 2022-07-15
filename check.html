@@ -1,0 +1,61 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="checkboxid" name="checkboxname">
+ <button id="btnDeleteid" onclick="deleteCheckBox()" name="btnDeletename">Delete</button>
+<script>
+ function deleteCheckBox(){
+    if (document.getElementById('checkboxid').checked){
+          var answer = confirm('Are you sure you want to delete this checkbox?');
+           if (answer)
+             {
+             $("#checkboxid").remove();
+             }
+           }else{
+             alert("Pls check the checkbox.");
+            }
+  }
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <input type='checkbox' value='asd' id='test' name='test' />
+    <input type='checkbox' value='asd' id='tester' name='test' />
+    <input type='button' value='remove' id='rmvBtn' />
+</div>
+<script>
+    var rmvBtn = document.getElementById('rmvBtn');
+
+rmvBtn.addEventListener('click', function(){
+   var rmvCheckBoxes = document.getElementsByName('test');
+
+    for(var i = 0; i < rmvCheckBoxes.length; i++)
+    {
+        if(rmvCheckBoxes[i].checked)
+        {
+            removeElm(rmvCheckBoxes[i]);    
+        }
+    }  
+});
+
+function removeElm(elm){
+   elm.parentElement.removeChild(elm);
+}
+</script>
+</body>
+</html>

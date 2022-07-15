@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="todo.css">
+    <!-- <script src="todo.js"></script> -->
+</head>
+<body>
+       <div class="container">
+         <div id="newtask">
+            <input type="text" placeholder="Enter item">
+            <button id="push">Add</button>
+         </div>
+         <div id="tasks"></div>
+         <div>
+            <button id="removeall" onclick="deleteCheckBox()">Remove selected</button>
+         </div>
+       </div>
+       <script>
+         document.querySelector('#push').onclick=function()
+{
+    if(document.querySelector('#newtask input').value.length==0){
+        alert("Enter item");
+    }
+    else{
+        document.querySelector('#tasks').innerHTML+= `
+        <div class="task">
+        
+    <input type='checkbox' value='asd' id='test' name='test' />
+    <input type='checkbox' value='asd' id='tester' name='test' />
+    <input type='button' value='remove' id='rmvBtn' />
+
+        <span id="taskname">
+        ${document.querySelector('#newtask input').value}
+        </span>
+        <button class="delete">Delete
+        </button>
+        </div>
+        `;
+        var current_tasks= document.querySelectorAll(".delete");
+        for(var i=0;i<current_tasks.length;i++)
+        {
+            current_tasks[i].onclick = function(){
+                this.parentNode.remove();
+            }
+        }
+
+    }
+}
+
+// function deleteCheckBox(){
+//     if (document.getElementById('checkboxid').checked){
+//           var answer = confirm('Are you sure you want to delete this checkbox?');
+//            if (answer)
+//              {
+//              $("#checkboxid").remove();
+
+//              var select_tasks= document.querySelectorAll("#checkboxid");
+//         for(var i=0;i<select_tasks.length;i++)
+//         {
+//             select_tasks[i].onclick = function(){
+//                 this.parentNode.remove();
+//             }
+//         }
+//              }
+//            }else{
+//              alert("Pls check the checkbox.");
+//             }
+//   }
+
+</script>
+
+</body>
+</html>
